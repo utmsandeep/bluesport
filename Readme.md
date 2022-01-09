@@ -4,8 +4,8 @@ Coaches and Players.
 
 # System Dependencies 
 
-1-Node and NPM.
-2-Active mongodb running on port 27017
+1-Node and NPM. \
+2-Active mongodb running on port 27017.
 
 
 # Installation & Initialization

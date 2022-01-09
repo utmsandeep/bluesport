@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "bcf14b18-898b-4720-98aa-c40a3a26fc81",
+		"name": "BlueSport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"jon.snow@bluesport.com\",\n    \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{adminbaseurl}}/login",
+							"host": [
+								"{{adminbaseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Coach",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{admin_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"jonas kahnwald\",\n    \"email\" : \"jonas.kahnwald@bluesport.com\",\n    \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{adminbaseurl}}/coaches",
+							"host": [
+								"{{adminbaseurl}}"
+							],
+							"path": [
+								"coaches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{admin_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Team A\",\n    \"coach_id\" : \"61dac050401ab13511caa387\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{adminbaseurl}}/teams",
+							"host": [
+								"{{adminbaseurl}}"
+							],
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Players",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{admin_access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{adminbaseurl}}/players?q=game&limit=12&page=1",
+							"host": [
+								"{{adminbaseurl}}"
+							],
+							"path": [
+								"players"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "game",
+									"description": "keyword to be searched"
+								},
+								{
+									"key": "limit",
+									"value": "12",
+									"description": "record per page"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coach",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"bran.stark@bluesport.com\",\n    \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{coachbaseurl}}/login",
+							"host": [
+								"{{coachbaseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{coach_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Team A\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{coachbaseurl}}/teams",
+							"host": [
+								"{{coachbaseurl}}"
+							],
+							"path": [
+								"teams"
+							],
+							"query": [
+								{
+									"key": "x-access-token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2FjaF9pZCI6IjYxZDkzOGJlNjYxZGM4Yzc0Njg3ZjE5ZCIsImVtYWlsIjoiYnJhbi5zdGFya0BibHVlc3BvcnQuY29tIiwibmFtZSI6IkJyYW4gU3RhcmsiLCJpYXQiOjE2NDE2NjI2OTYsImV4cCI6MTY0MTY2OTg5Nn0.m0_DQVbW9DT5SiMjXh9GxzgqbnlXUOdumeVOJfj8tHQ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Player",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{coach_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"nikesh Nielsen\",\n    \"team_id\":\"61d9cc1bc43c6c4d34379c86\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{coachbaseurl}}/players",
+							"host": [
+								"{{coachbaseurl}}"
+							],
+							"path": [
+								"players"
+							],
+							"query": [
+								{
+									"key": "x-access-token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2FjaF9pZCI6IjYxZDkzOGJlNjYxZGM4Yzc0Njg3ZjE5ZCIsImVtYWlsIjoiYnJhbi5zdGFya0BibHVlc3BvcnQuY29tIiwibmFtZSI6IkJyYW4gU3RhcmsiLCJpYXQiOjE2NDE2NjI2OTYsImV4cCI6MTY0MTY2OTg5Nn0.m0_DQVbW9DT5SiMjXh9GxzgqbnlXUOdumeVOJfj8tHQ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Player Match",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{coach_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"match_name\":\"Game a\",\n    \"player_id\":\"61daa7061eabc23419afbcd5\",\n    \"is_won\": \"false\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{coachbaseurl}}/players/played-matches",
+							"host": [
+								"{{coachbaseurl}}"
+							],
+							"path": [
+								"players",
+								"played-matches"
+							],
+							"query": [
+								{
+									"key": "x-access-token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2FjaF9pZCI6IjYxZDkzOGJlNjYxZGM4Yzc0Njg3ZjE5ZCIsImVtYWlsIjoiYnJhbi5zdGFya0BibHVlc3BvcnQuY29tIiwibmFtZSI6IkJyYW4gU3RhcmsiLCJpYXQiOjE2NDE2NjI2OTYsImV4cCI6MTY0MTY2OTg5Nn0.m0_DQVbW9DT5SiMjXh9GxzgqbnlXUOdumeVOJfj8tHQ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Players",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{coach_access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{coachbaseurl}}/players?q=game&limit=12&page=1",
+							"host": [
+								"{{coachbaseurl}}"
+							],
+							"path": [
+								"players"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "game"
+								},
+								{
+									"key": "limit",
+									"value": "12"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "coachbaseurl",
+			"value": "127.0.0.1:8001/coach"
+		},
+		{
+			"key": "adminbaseurl",
+			"value": "127.0.0.1:8001/admin"
+		},
+		{
+			"key": "coach_access_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2FjaF9pZCI6IjYxZDkzOGJlNjYxZGM4Yzc0Njg3ZjE5ZCIsImVtYWlsIjoiYnJhbi5zdGFya0BibHVlc3BvcnQuY29tIiwibmFtZSI6IkJyYW4gU3RhcmsiLCJpYXQiOjE2NDE3Mjg3ODYsImV4cCI6MTY0MTczNTk4Nn0.JhIOFdoxkazoP_ycXWMeDVlPoEJLJ2rYxkwkGd_Ok2A"
+		},
+		{
+			"key": "admin_access_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJyYW4uc3RhcmtAYmx1ZXNwb3J0LmNvbSIsIm5hbWUiOiJCcmFuIFN0YXJrIiwiaWF0IjoxNjQxNjU1NzAyLCJleHAiOjE2NDE2NjI5MDJ9.psWNMTxHO7H_Oqmq1b6qoPP3bVQKREdOYMcpbrilrLM"
+		}
+	]
+}
